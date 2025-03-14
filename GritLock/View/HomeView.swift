@@ -2,7 +2,7 @@ import SwiftUI
 import FamilyControls
 
 struct HomeView: View {
-    @ObservedObject var viewModel: HomeViewModel  // Pass viewModel instead of creating a new one
+    @ObservedObject var viewModel: HomeViewModel 
     @State private var showSettings: Bool = false
     @State private var animateGradient: Bool = false
 
@@ -96,12 +96,12 @@ struct HomeView: View {
                 .foregroundColor(.white)
             }
             .onAppear {
-                viewModel.resumeTimer() // Ensures timer runs even after backgrounding
+                viewModel.resumeTimer()
                 OrientationLock.lockOrientation(.portrait, rotateTo: .portrait)
                
             }
             .onDisappear {
-                OrientationLock.lockOrientation(.all) // Reset if needed for other views
+                OrientationLock.lockOrientation(.all)
             }
 
             .background(LinearGradient(colors: [startColor, endColor], startPoint: .topLeading, endPoint: .bottomTrailing)
